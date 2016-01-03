@@ -1,18 +1,19 @@
-var ForagerBee = function(age, job, canFly, treasureChest) {
-	    Bee.call(color);
-		Grub.call(food, eat);
+var ForagerBee = function(age, color, job, food, eat, canFly, treasureChest) {
+	  HoneyMakerBee.call(this, color, food, eat);
 		
+		this.treasureChest = [];
 		this.age = 10;
 		this.job = "find pollen";
 		this.canFly = true;
-		this.treasureChest = [],
+};
+
+ForagerBee.prototype = Object.create(HoneyMakerBee.prototype);
+ForagerBee.prototype.constructor = ForagerBee; 
+
+
 
 ForagerBee.prototype.forage = function(treasure){
-			 treasure++;
-			  treasureChest.push(treasure);
-			   return treasureChest;
-		
-	}
+		this.treasureChest.push(treasure);
+		return this.treasureChest;
 };
-// ForagerBee.prototype = Object.create(HoneyMakerBee.prototype);
-// HoneyMakerBee.prototype.constructor = HoneyMakerBee; 
+
